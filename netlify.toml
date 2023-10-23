@@ -1,0 +1,11 @@
+[build]
+    publish = "dist/"
+
+[context.production]
+    publish = "dist/"
+
+[functions]
+  included_files = [
+    "node_modules/debug/**",
+    "node_modules/ms/**",
+]
