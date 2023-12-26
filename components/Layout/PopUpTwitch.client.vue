@@ -55,7 +55,7 @@
         }
     };
 
-    const { data } = useLazyFetch("/api/twitch/stream", {
+    const { data } = await useLazyFetch("/api/twitch/stream", {
         transform (response) {
             if (response) {
                 response.image = response?.image.replace("{width}", "300");
