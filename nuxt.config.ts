@@ -39,7 +39,6 @@ export default defineNuxtConfig({
         "nuxt-icon",
         "nuxt-icons",
         "nuxt-lodash",
-        "@vite-pwa/nuxt",
         "@nuxtjs/supabase",
         "nuxt-delay-hydration"
     ],
