@@ -39,7 +39,6 @@
                     {{ YT?.title }}
                 </h4>
             </a>
-            <Vakinha />
             <template v-for="(group, _key) in groupsLinks" :key="_key">
                 <DividingTitle :title="group.title" />
                 <div class="grid gap-10 xs:grid-cols-2">

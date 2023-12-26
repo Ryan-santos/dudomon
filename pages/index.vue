@@ -29,10 +29,6 @@
         </Banner>
 
         <article class="container mb-24">
-            <Vakinha class="mx-auto lg:flex-row-reverse" />
-        </article>
-
-        <article class="container mb-24">
             <DividingTitle title="videos" class="mb-12" />
             <p class="mx-auto mb-8 max-w-screen-lg text-center">
                 Diariamente, ao meio-dia, um vídeo fresquinho aguarda por você. Nele, você encontrará uma mistura envolvente de dicas, informações e gameplays, tudo apresentado com um toque contagiante de bom humor e diversão!
