@@ -47,7 +47,8 @@
                         class="scrollbar absolute inset-y-0 left-0 my-auto grid h-fit max-h-full w-1/2 grid-flow-row auto-rows-min items-center justify-center justify-items-center gap-3 overflow-auto py-4 lg:static lg:h-fit lg:w-full lg:auto-cols-min lg:grid-flow-col lg:gap-0 lg:overflow-visible lg:py-0"
                         :class="{'max-lg:opacity-0': subNav.open}"
                     >
-                        <NuxtLink
+                        <component
+                            :is="value.path ? NuxtLink : 'button'"
                             v-for="(value, key) in pages"
                             :key="key"
                             :href="value.path"
@@ -59,7 +60,7 @@
                         >
                             {{ value.name }}
                             <Icon v-if="value?.routes" name="ep:arrow-right-bold" class="lg:rotate-90" />
-                        </NuxtLink>
+                        </component>
                     </div>
                     <Transition
                         enterActiveClass="lg:transition-all lg:duration-500"
@@ -144,6 +145,8 @@
 </template>
 
 <script setup lang="ts">
+    import { NuxtLink } from "#components";
+
     const container = ref<HTMLDivElement>();
     const transparent = ref(true);
     const open = ref(false);
