@@ -11,6 +11,7 @@
                     <iframe
                         ref="newPlayList"
                         :src="spotifyEmbed(playlists.new_playlist.playlistId)"
+                        title="nova playlist"
                         class="h-[35rem] rounded-3xl lg:w-1/2"
                         loading="lazy"
                     />
@@ -84,6 +85,7 @@
                 </h4>
                 <iframe
                     :src="spotifyEmbed(item)"
+                    :title="`playlist ${key+1}`"
                     class="h-full w-full rounded-3xl"
                     loading="lazy"
                 />

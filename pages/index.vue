@@ -5,7 +5,7 @@
             description="Minha missão é proporcionar diversão e conhecimento às pessoas, compartilhando meu entusiasmo pelos jogos mobile, especialmente através dos meus vídeos sobre Honor of Kings, que é um dos jogos mobile mais amados em todo o mundo."
         >
             <template #background>
-                <div class="absolute inset-0 -z-10 grid gap-1 opacity-20" :class="classGrid">
+                <div class="background absolute inset-0 -z-10 grid gap-1 opacity-20" :class="classGrid">
                     <!-- eslint-disable-next-line vue/valid-v-for -->
                     <Transition
                         v-for="(id, index) in videos"
@@ -169,7 +169,7 @@
     });
 
     useSeoMeta({
-        title: "Tornando você um jogador melhor.",
+        title: "Tornando você um jogador melhor",
         description: "Divirta-se e aprenda comigo, estou aqui para ajudar você a ser um jogador melhor!"
     });
 

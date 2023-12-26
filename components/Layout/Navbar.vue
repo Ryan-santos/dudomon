@@ -130,7 +130,7 @@
                             <span class="pl-2 text-sm">
                                 {{ user.user_metadata?.nickname }}
                             </span>
-                            <img :src="user.user_metadata?.avatar_url" class="h-7 w-7 max-w-none rounded-full">
+                            <Image :src="user.user_metadata?.avatar_url" sizes="30px" :alt="user.user_metadata?.nickname" class="h-7 w-7 max-w-none rounded-full" />
                         </Button>
                         <Button v-else href="/login" class="max-xs:w-full">
                             <Icon name="mingcute:user-2-fill" />
