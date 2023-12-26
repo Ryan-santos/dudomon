@@ -15,7 +15,7 @@
                         AO VIVO
                     </span>
                 </div>
-                <VSvg name="logo" class="max-w-xs" />
+                <VSvg name="logo" preRender currentcolor class="max-w-xs" />
             </div>
             <p>
                 Me acompanhe para ficar por dentro de todas as novidades incríveis no mundo do Moba Mobile!

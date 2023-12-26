@@ -17,7 +17,7 @@
             >
                 <div class="flex w-full items-center justify-between lg:w-fit">
                     <NuxtLink href="/" class="max-w-[15rem] md:max-w-[20rem]">
-                        <VSvg name="logo" />
+                        <VSvg name="logo" preRender currentcolor />
                     </NuxtLink>
                     <button
                         class="flex h-10 w-10 flex-col justify-between overflow-hidden rounded-e-full lg:hidden"

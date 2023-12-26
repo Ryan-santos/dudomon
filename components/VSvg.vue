@@ -11,13 +11,15 @@
     const props = withDefaults(defineProps<{
         name: string;
         currentcolor?: boolean
+        preRender?: boolean
     }>(), {
-        currentcolor: false
+        currentcolor: false,
+        preRender: false
     });
 
-    const icon = ref("");
+    const icon = ref(`<span class="text-warn animate-ping">${props.name}...</span>`);
 
-    watchEffect(async () => {
+    const getIcon = async () => {
         try {
             const iconsImport = import.meta.glob("/assets/svg/**/**.svg", {
                 as: "raw",
@@ -31,7 +33,13 @@
                 `[SVG] Svg '${props.name}' não existe em 'assets/svg'`
             );
         }
-    });
+    };
+
+    if (props.preRender) {
+        await getIcon();
+    }
+
+    watchEffect(getIcon);
 </script>
 
 <style>
