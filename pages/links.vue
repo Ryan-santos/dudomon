@@ -20,7 +20,7 @@
             <p>
                 Me acompanhe para ficar por dentro de todas as novidades incríveis no mundo do Moba Mobile!
             </p>
-            <a :href="YT?.link" target="_blank" class="group rounded-3xl bg-youtube p-1 text-white transition-all duration-300 hover:bg-primary hover:text-black">
+            <a v-if="YT" :href="YT?.link" target="_blank" class="group rounded-3xl bg-youtube p-1 text-white transition-all duration-300 hover:bg-primary hover:text-black">
                 <div class="relative overflow-hidden rounded-3xl">
                     <Image
                         :src="YT?.thumbnail"
@@ -88,7 +88,7 @@
         description: "Descubra as últimas novidades do mundo do Moba Mobile em minhas redes sociais e grupos. Mantenha-se atualizado!"
     });
 
-    const YT = await useYT(1).then(r => r.value?.[0]);
+    const YT = await useYT(1);
     const liveOn = ref(false);
 
     const groupsLinks = useGroupsLinks();

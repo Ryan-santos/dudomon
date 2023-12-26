@@ -1,10 +1,11 @@
-export default async function (maxResults = 4) {
-    interface Videos {
-        thumbnail: string
-        title: string
-        link: string
-    }
+import type { PlaylistItem, PlaylistItemResponse } from "~/types/youtube";
+interface Video {
+    thumbnail: string
+    title: string
+    link: string
+}
 
+export default async function <T extends number | 1> (maxResults: T = 4): Promise<T extends 1 ? Video : Video[] | null> {
     const { data } = await useLazyFetch("https://www.googleapis.com/youtube/v3/playlistItems",
         {
             params: {
@@ -14,24 +15,28 @@ export default async function (maxResults = 4) {
                 maxResults
             },
 
-            transform (response: any) {
-                const res: Videos[] = [];
+            transform (response: PlaylistItemResponse) {
+                const parse = (element: PlaylistItem): Video => {
+                    const snippet = element.snippet;
+                    const thumbnail = snippet.thumbnails.maxres?.url || snippet.thumbnails.medium?.url || snippet.thumbnails.high?.url;
 
-                response?.items?.forEach((element:any) => {
-                    element = element.snippet;
-                    const thumbnail = element.thumbnails.maxres?.url || element.thumbnails.medium?.url || element.thumbnails.high?.url;
-
-                    res.push({
+                    return {
                         thumbnail,
-                        title: element.title,
-                        link: `https://www.youtube.com/watch?v=${element.resourceId.videoId}`
-                    });
-                });
+                        title: snippet.title,
+                        link: `https://www.youtube.com/watch?v=${snippet.resourceId.videoId}`
+                    };
+                };
 
-                return res;
+                if (maxResults === 1) {
+                    return parse(response?.items?.[0]);
+                }
+
+                return response?.items?.map((element) => {
+                    return parse(element);
+                });
             }
         }
     );
 
-    return data;
+    return data as unknown as T extends 1 ? Video : Video[] | null;
 }
