@@ -47,7 +47,7 @@
                                     class="relative flex h-28 w-full cursor-pointer flex-row items-center rounded-2xl bg-background text-contrast shadow-md outline outline-2 outline-transparent transition-all duration-500 hover:bg-transparent hover:text-black hover:outline-black"
                                     @click="trackId = track.id"
                                 >
-                                    <img :src="track.image" class="aspect-square h-full rounded-2xl">
+                                    <Image :src="track.image" class="aspect-square h-full rounded-2xl" />
                                     <div class="w-full p-3">
                                         <span class="line-clamp-1 text-xs">
                                             {{ track.album }}

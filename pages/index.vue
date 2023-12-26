@@ -46,7 +46,12 @@
                     class="group relative z-10 block overflow-hidden rounded-3xl shadow-lg outline outline-2 outline-transparent transition-all duration-500 hover:outline-primary"
                     :class="{'lg:col-span-3 lg:row-span-3': key === 0}"
                 >
-                    <img :src="value.thumbnail" class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105">
+                    <Image
+                        :src="value.thumbnail"
+                        :alt="value.title"
+                        :sizes="key === 0 ? '450px lg:1120px' : '450px'"
+                        class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
+                    />
                     <div v-if="key === 0" class="absolute left-0 top-0 z-10 m-4 rounded-full bg-youtube px-3 py-1 font-bold text-white">
                         <Icon name="bi:youtube" />
                         <span class="font-black">
@@ -143,7 +148,12 @@
                     class="flex max-w-sm flex-col rounded-3xl bg-background-100 p-4 shadow-sm"
                     :class="{'transition-all duration-500 hover:bg-primary hover:text-black': value?.link}"
                 >
-                    <img :src="`images/donation/${value.name.replaceAll(' ', '').toLowerCase()}.jpg`" class="mb-6 rounded-3xl">
+                    <Image
+                        :src="`donation/${value.name.replaceAll(' ', '').toLowerCase()}.jpg`"
+                        sizes="450px"
+                        :alt="value.name"
+                        class="mb-6 rounded-3xl"
+                    />
                     <span class="text-sm">
                         {{ value?.detail }}
                     </span>

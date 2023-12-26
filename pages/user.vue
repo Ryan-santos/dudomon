@@ -2,7 +2,7 @@
     <Banner unique noImage>
         <Card background="background" higherClass="mx-auto max-w-screen-xs" class="flex w-full flex-col items-center gap-8">
             <div class="flex flex-col items-center gap-4">
-                <img :src="supabaseUser?.user_metadata?.avatar_url" class="h-32 w-32 max-w-none rounded-full bg-primary">
+                <Image :src="supabaseUser?.user_metadata?.avatar_url" class="h-32 w-32 max-w-none rounded-full bg-primary" />
                 <h3 class="flex flex-row items-center gap-2 font-bold">
                     <NuxtIcon v-if="badge" :name="badge" filled />
                     {{ supabaseUser?.user_metadata?.nickname }}
