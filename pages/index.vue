@@ -136,7 +136,8 @@
                 Se você aprecia meu trabalho e deseja apoiar o canal diretamente, basta apontar sua câmera para um dos QR codes abaixo ou clicar neles para fazer uma doação no valor que achar adequado. Desde já, agradeço imensamente pelo seu apoio!
             </p>
             <div class="flex w-full flex-wrap items-stretch justify-center gap-8">
-                <a
+                <Component
+                    :is="value?.link ? 'a' : 'div'"
                     v-for="(value, key) in donations"
                     :key="key"
                     :href="value?.link"
@@ -156,7 +157,7 @@
                     <h3 class="my-auto font-medium">
                         {{ value.name }}
                     </h3>
-                </a>
+                </Component>
             </div>
         </article>
     </section>
