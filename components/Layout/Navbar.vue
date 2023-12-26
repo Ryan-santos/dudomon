@@ -89,7 +89,7 @@
 
                                     mode="out-in"
                                 >
-                                    <div :key="subNav.key" class="grid grid-flow-row auto-rows-min items-center justify-center justify-items-center gap-3 lg:justify-items-start lg:p-4">
+                                    <div v-show="subNav.key" class="grid grid-flow-row auto-rows-min items-center justify-center justify-items-center gap-3 lg:justify-items-start lg:p-4">
                                         <NuxtLink
                                             v-for="(value, key) in pages[subNav.key]?.routes"
                                             :key="key"
