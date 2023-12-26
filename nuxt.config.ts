@@ -40,7 +40,8 @@ export default defineNuxtConfig({
         "nuxt-icons",
         "nuxt-lodash",
         "@vite-pwa/nuxt",
-        "@nuxtjs/supabase"
+        "@nuxtjs/supabase",
+        "nuxt-delay-hydration"
     ],
 
     gtag: {
@@ -64,5 +65,9 @@ export default defineNuxtConfig({
         cookieOptions: {
             maxAge: 7 * 24 * 60 * 60
         }
+    },
+
+    delayHydration: {
+        mode: "init"
     }
 });
