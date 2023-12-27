@@ -21,6 +21,19 @@ jobs:
 
       - name: Build app
         run: npm run build
+        env:
+            SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+            SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+            REDIS_PORT: ${{ secrets.REDIS_PORT }}
+            REDIS_HOST: ${{ secrets.REDIS_HOST }}
+            REDIS_USERNAME: ${{ secrets.REDIS_USERNAME }}
+            REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
+            TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+            TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
+            TWITCH_USER_ID: ${{ secrets.TWITCH_USER_ID }}
+            SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+            SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+            SPOTIFY_USER_ID: ${{ secrets.SPOTIFY_USER_ID }}
 
       - name: Get version
         id: package
