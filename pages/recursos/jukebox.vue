@@ -11,6 +11,7 @@
                     <iframe
                         ref="newPlayList"
                         :src="spotifyEmbed(playlists.new_playlist.playlistId)"
+                        title="nova playlist"
                         class="h-[35rem] rounded-3xl lg:w-1/2"
                         loading="lazy"
                     />
@@ -47,7 +48,7 @@
                                     class="relative flex h-28 w-full cursor-pointer flex-row items-center rounded-2xl bg-background text-contrast shadow-md outline outline-2 outline-transparent transition-all duration-500 hover:bg-transparent hover:text-black hover:outline-black"
                                     @click="trackId = track.id"
                                 >
-                                    <img :src="track.image" class="aspect-square h-full rounded-2xl">
+                                    <Image :src="track.image" class="aspect-square h-full rounded-2xl" />
                                     <div class="w-full p-3">
                                         <span class="line-clamp-1 text-xs">
                                             {{ track.album }}
@@ -84,6 +85,7 @@
                 </h4>
                 <iframe
                     :src="spotifyEmbed(item)"
+                    :title="`playlist ${key+1}`"
                     class="h-full w-full rounded-3xl"
                     loading="lazy"
                 />

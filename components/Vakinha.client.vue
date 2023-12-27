@@ -23,7 +23,7 @@
                 </Button>
             </div>
         </div>
-        <img src="/images/donation/picpay.jpg" class="relative max-w-xs rounded-3xl">
+        <Image src="donation/picpay.jpg" sizes="350px" loading="lazy" alt="qr-code pix" class="relative max-w-xs rounded-3xl" />
     </div>
 </template>
 

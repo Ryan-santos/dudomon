@@ -75,12 +75,11 @@
                                 :key="hero.id"
                                 class="relative z-10 flex aspect-square flex-col justify-end rounded-2xl"
                             >
-                                <img
+                                <Image
                                     :src="usePictureHero(hero.heroes?.id!)"
                                     :alt="hero.heroes?.name"
                                     class="absolute inset-0 -z-10 h-full w-full rounded-2xl object-cover"
-                                    loading="lazy"
-                                >
+                                />
                                 <span class="rounded-b-2xl bg-gradient-to-b from-black/0 to-black p-2 text-center font-medium text-white">
                                     {{ hero.heroes?.name }}
                                 </span>

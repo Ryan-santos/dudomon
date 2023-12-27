@@ -5,7 +5,7 @@
             description="Minha missão é proporcionar diversão e conhecimento às pessoas, compartilhando meu entusiasmo pelos jogos mobile, especialmente através dos meus vídeos sobre Honor of Kings, que é um dos jogos mobile mais amados em todo o mundo."
         >
             <template #background>
-                <div class="absolute inset-0 -z-10 grid gap-1 opacity-20" :class="classGrid">
+                <div class="background absolute inset-0 -z-10 grid gap-1 opacity-20" :class="classGrid">
                     <!-- eslint-disable-next-line vue/valid-v-for -->
                     <Transition
                         v-for="(id, index) in videos"
@@ -29,10 +29,6 @@
         </Banner>
 
         <article class="container mb-24">
-            <Vakinha class="mx-auto lg:flex-row-reverse" />
-        </article>
-
-        <article class="container mb-24">
             <DividingTitle title="videos" class="mb-12" />
             <p class="mx-auto mb-8 max-w-screen-lg text-center">
                 Diariamente, ao meio-dia, um vídeo fresquinho aguarda por você. Nele, você encontrará uma mistura envolvente de dicas, informações e gameplays, tudo apresentado com um toque contagiante de bom humor e diversão!
@@ -46,7 +42,12 @@
                     class="group relative z-10 block overflow-hidden rounded-3xl shadow-lg outline outline-2 outline-transparent transition-all duration-500 hover:outline-primary"
                     :class="{'lg:col-span-3 lg:row-span-3': key === 0}"
                 >
-                    <img :src="value.thumbnail" class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105">
+                    <Image
+                        :src="value.thumbnail"
+                        :alt="value.title"
+                        :sizes="key === 0 ? '450px lg:1120px' : '450px'"
+                        class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
+                    />
                     <div v-if="key === 0" class="absolute left-0 top-0 z-10 m-4 rounded-full bg-youtube px-3 py-1 font-bold text-white">
                         <Icon name="bi:youtube" />
                         <span class="font-black">
@@ -135,7 +136,8 @@
                 Se você aprecia meu trabalho e deseja apoiar o canal diretamente, basta apontar sua câmera para um dos QR codes abaixo ou clicar neles para fazer uma doação no valor que achar adequado. Desde já, agradeço imensamente pelo seu apoio!
             </p>
             <div class="flex w-full flex-wrap items-stretch justify-center gap-8">
-                <a
+                <Component
+                    :is="value?.link ? 'a' : 'div'"
                     v-for="(value, key) in donations"
                     :key="key"
                     :href="value?.link"
@@ -143,14 +145,19 @@
                     class="flex max-w-sm flex-col rounded-3xl bg-background-100 p-4 shadow-sm"
                     :class="{'transition-all duration-500 hover:bg-primary hover:text-black': value?.link}"
                 >
-                    <img :src="`images/donation/${value.name.replaceAll(' ', '').toLowerCase()}.jpg`" class="mb-6 rounded-3xl">
+                    <Image
+                        :src="`donation/${value.name.replaceAll(' ', '').toLowerCase()}.jpg`"
+                        sizes="450px"
+                        :alt="value.name"
+                        class="mb-6 rounded-3xl"
+                    />
                     <span class="text-sm">
                         {{ value?.detail }}
                     </span>
                     <h3 class="my-auto font-medium">
                         {{ value.name }}
                     </h3>
-                </a>
+                </Component>
             </div>
         </article>
     </section>
@@ -162,7 +169,7 @@
     });
 
     useSeoMeta({
-        title: "Tornando você um jogador melhor.",
+        title: "Tornando você um jogador melhor",
         description: "Divirta-se e aprenda comigo, estou aqui para ajudar você a ser um jogador melhor!"
     });
 

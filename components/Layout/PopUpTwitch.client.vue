@@ -10,10 +10,12 @@
         appear
     >
         <div v-if="open" class="fixed inset-x-0 bottom-0 z-30 overflow-hidden rounded-t-2xl bg-primary p-4 text-center text-black sm:bottom-6 sm:left-auto sm:right-6 sm:max-w-xs sm:rounded-2xl">
-            <img
+            <Image
                 :src="data?.image"
+                alt="capa do jogo"
+                loading="lazy"
                 class="mask-transparent absolute inset-y-0 left-0 -z-10 h-full opacity-70 [--deg:90deg] [--percentage:0%]"
-            >
+            />
             <h4 class="mb-8 font-black uppercase">
                 <span class="relative text-red-600">
                     <span class="absolute inset-0 animate-ping rounded-full bg-red-600 opacity-75" />
@@ -53,7 +55,7 @@
         }
     };
 
-    const { data } = useLazyFetch("/api/twitch/stream", {
+    const { data } = await useLazyFetch("/api/twitch/stream", {
         transform (response) {
             if (response) {
                 response.image = response?.image.replace("{width}", "300");

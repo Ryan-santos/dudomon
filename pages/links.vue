@@ -3,26 +3,31 @@
         <section class="container flex min-h-full max-w-screen-sm flex-col gap-12 py-12 text-center">
             <div class="flex flex-col items-center justify-center gap-8 xs:flex-row">
                 <div class="relative">
-                    <img
-                        src="/images/profile.png"
+                    <Image
+                        src="profile.png"
+                        sizes="70"
+                        width="70"
+                        alt="Eduardo"
                         class="rounded-full"
                         :class="{'border-2 border-red-600': liveOn}"
-                    >
+                    />
                     <span v-if="liveOn" class="absolute inset-x-0 bottom-0 whitespace-nowrap rounded bg-red-600 p-px text-xs font-black text-white shadow-md">
                         AO VIVO
                     </span>
                 </div>
-                <VSvg name="logo" class="max-w-xs" />
+                <VSvg name="logo" preRender currentcolor class="max-w-xs" />
             </div>
             <p>
                 Me acompanhe para ficar por dentro de todas as novidades incríveis no mundo do Moba Mobile!
             </p>
-            <a :href="YT?.link" target="_blank" class="group rounded-3xl bg-youtube p-1 text-white transition-all duration-300 hover:bg-primary hover:text-black">
+            <a v-if="YT" :href="YT?.link" target="_blank" class="group rounded-3xl bg-youtube p-1 text-white transition-all duration-300 hover:bg-primary hover:text-black">
                 <div class="relative overflow-hidden rounded-3xl">
-                    <img
+                    <Image
                         :src="YT?.thumbnail"
+                        :alt="YT?.title"
+                        sizes="400 xs:650"
                         class="transition-all duration-500 group-hover:scale-105"
-                    >
+                    />
                     <div class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-row items-center rounded-l-3xl rounded-r-full bg-youtube p-3 text-left transition-[background-color] duration-300 group-hover:bg-primary">
                         <span class="whitespace-nowrap font-bold sm:text-lg">
                             Ver video novo
@@ -34,7 +39,6 @@
                     {{ YT?.title }}
                 </h4>
             </a>
-            <Vakinha />
             <template v-for="(group, _key) in groupsLinks" :key="_key">
                 <DividingTitle :title="group.title" />
                 <div class="grid gap-10 xs:grid-cols-2">
@@ -83,7 +87,7 @@
         description: "Descubra as últimas novidades do mundo do Moba Mobile em minhas redes sociais e grupos. Mantenha-se atualizado!"
     });
 
-    const YT = await useYT(1).then(r => r.value?.[0]);
+    const YT = await useYT(1);
     const liveOn = ref(false);
 
     const groupsLinks = useGroupsLinks();

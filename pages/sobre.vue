@@ -12,7 +12,7 @@
                     </p>
                 </div>
                 <div class="w-full lg:max-w-screen-md xl:max-w-screen-sm">
-                    <img src="/images/duds-banner.png" class="w-full">
+                    <Image src="duds-banner.png" class="w-full" />
                 </div>
             </div>
         </Banner>
