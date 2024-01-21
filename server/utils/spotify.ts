@@ -1,8 +1,14 @@
 import type { FetchOptions } from "ofetch";
 
-export const spotifyClientId = process.env.SPOTIFY_CLIENT_ID!;
-export const spotifyClientSecret = process.env.SPOTIFY_CLIENT_SECRET!;
-export const spotifyUserId = process.env.SPOTIFY_USER_ID;
+const {
+    clientId,
+    clientSecret,
+    userId
+} = useRuntimeConfig().spotify;
+
+export const spotifyClientId = clientId;
+export const spotifyClientSecret = clientSecret;
+export const spotifyUserId = userId;
 
 export interface SpotifyToken {
     access_token: string

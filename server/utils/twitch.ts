@@ -1,9 +1,15 @@
 import type { H3Event } from "h3";
 import type TwitchApi from "~/types/twitch";
 
-export const twitchClientId = process.env.TWITCH_CLIENT_ID!;
-export const twitchClientSecret = process.env.TWITCH_CLIENT_SECRET!;
-export const twitchUserId = process.env.TWITCH_USER_ID!;
+const {
+    clientId,
+    clientSecret,
+    userId
+} = useRuntimeConfig().twitch;
+
+export const twitchClientId = clientId;
+export const twitchClientSecret = clientSecret;
+export const twitchUserId = userId;
 
 interface TwitchToken {
     access_token: string

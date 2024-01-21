@@ -31,6 +31,25 @@ export default defineNuxtConfig({
         preset: "netlify"
     },
 
+    runtimeConfig: {
+        redis: {
+            port: process.env.REDIS_PORT,
+            host: process.env.REDIS_HOST,
+            username: process.env.REDIS_USERNAME,
+            password: process.env.REDIS_PASSWORD
+        },
+        twitch: {
+            clientId: process.env.TWITCH_CLIENT_ID,
+            clientSecret: process.env.TWITCH_CLIENT_SECRET,
+            userId: process.env.TWITCH_USER_ID
+        },
+        spotify: {
+            clientId: process.env.SPOTIFY_CLIENT_ID,
+            clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+            userId: process.env.SPOTIFY_USER_ID
+        }
+    },
+
     modules: [
         "nuxt-gtag",
         "@nuxtjs/google-fonts",
