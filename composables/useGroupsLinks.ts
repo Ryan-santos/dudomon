@@ -60,7 +60,7 @@ export default function (): Record<string, GroupsLinks> {
                 whatsapp: {
                     name: "whatsapp",
                     icon: "fontisto:whatsapp",
-                    url: "https://chat.whatsapp.com/LkprwzPPYcYFItZKvBq3E3",
+                    url: "https://chat.whatsapp.com/FdH8xsywfdO7ZIYfUyyFmH",
                     class: "bg-whatsapp text-white"
                 },
                 discord: {

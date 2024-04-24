@@ -17,4 +17,5 @@ Para o desenvolvimento deste site utilizei as seguintes tecnologias:
  - [TypeScript](https://www.typescriptlang.org)
  - [Tailwind CSS](https://tailwindcss.com)
  - [Supabase](https://supabase.com)
+ - [Redis](https://redis.com)
  - [Node.js](https://nodejs.org)
